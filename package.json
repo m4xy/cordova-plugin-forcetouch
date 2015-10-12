@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-forcetouch",
+  "version": "1.0.5",
+  "description": "Cordova Plugin iOS Force Touch",
+  "main": "ForceTouch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xonoxitron/cordova-plugin-forcetouch.git"
+  },
+  "keywords": [
+    "cordova",
+    "apple",
+    "ios",
+    "force touch",
+    "pressure control",
+    "touch sensitivity",
+    "touch phase",
+    "3D Touch"
+  ],
+  "author": "Matteo Pisani",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/xonoxitron/cordova-plugin-forcetouch/issues"
+  },
+  "homepage": "https://github.com/xonoxitron/cordova-plugin-forcetouch#readme"
+}

@@ -1,0 +1,29 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"ForceTouch\"><param name=\"ios-package\" value=\"CDVForceTouch\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.dev.forcetouch"
+        },
+        "cordova-plugin-forcetouch": {
+            "PACKAGE_NAME": "com.dev.forcetouch"
+        }
+    },
+    "dependent_plugins": {}
+}
