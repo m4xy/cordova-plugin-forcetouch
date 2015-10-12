@@ -76,13 +76,15 @@ Or
 ## ForceTouchData `(object)`
 ```json
 {
-  "forceTouchCapability" : "0',
-  "tapCount" : "0,
-  "timestamp" : "0.000000,
+  "forceTouchCapability" : "0",
+  "tapCount" : "0",
+  "timestamp" : "0.000000",
   "phase" : "0",                  
-  "force" : "0.000000,
+  "force" : "0.000000",
   "maximumPossibleForce" : "0.0"
 }
+
+Types
 
 forceTouchCapability     (int enum) 0 || 1 || 2
 tapCount                 (int)
