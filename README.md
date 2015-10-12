@@ -72,7 +72,7 @@ Or
 
 ## Test Application
 
-1. iPhone 5,1 - Not Supported
+1. iPhone 5,1 (No ForceTouch)
 
 <img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
 
