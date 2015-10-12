@@ -1,6 +1,13 @@
 # Cordova iOS Force Touch Plugin
 ### (cordova-plugin-forcetouch)
 
+## Author
+```
+Matteo Pisani
+E-mail: matteo.pisani.91@gmail.com
+Linkedin: www.linkedin.com/in/matteopisani
+```
+
 ## Description
 This plugin allows developer to manage Force Touch readable variables of supported Apple devices.
 It returns Force Touch data, prefixed with "ForceTouch" object.
@@ -101,11 +108,4 @@ maximumPossibleForce     (float)
 ## Apple Official Force Touch Documentation for iOS
 ```
 https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html
-```
-
-## Author
-```
-Matteo Pisani
-E-mail: matteo.pisani.91@gmail.com
-Linkedin: www.linkedin.com/in/matteopisani
 ```
