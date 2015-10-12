@@ -70,6 +70,21 @@ Or
 
     cordova run ios --device
 
+## Test Application
+<img src="screens/iPhone5-1.PNG"/>&nbsp;
+
+## ForceTouchData `(object)`
+```json
+{
+  "forceTouchCapability" : '0';   // (int enum) 0 || 1 || 2
+  "tapCount" : '0';               // (int)
+  "timestamp" : '0.000000';       // (float)
+  "phase" : '0';                  // (int)
+  "force" : '0.000000';           // (float) max value -> 1.0
+  "maximumPossibleForce" : '0.0'; // (float)
+}
+```
+
 ## Apple Official Force Touch Documentation for iOS
 ```
 https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html
