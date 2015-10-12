@@ -71,6 +71,9 @@ Or
     cordova run ios --device
 
 ## Test Application
+
+1. [Not Supported Device]
+
 <img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
 
 ## ForceTouchData `(object)`
