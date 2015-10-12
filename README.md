@@ -22,28 +22,28 @@ Install the plugin
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 
 ```js
-  // call the plugin for getting ForceTouch Data object
-  ForceTouch.getForceTouchData(function (ForceTouchData)
+// call the plugin for getting ForceTouch Data object
+ForceTouch.getForceTouchData(function (ForceTouchData)
+{
+  var status = 'Force Touch Status: ';
+  switch(ForceTouchData.forceTouchCapability)
   {
-    var status = 'Force Touch Status: ';
-    switch(ForceTouchData.forceTouchCapability)
-    {
-      case '0':
-        alert(status + 'Unknown');
-      break;
-      case '1':
-        alert(status + 'Unavailable');
-      break;
-      case '2':
-        alert(status + 'Available');
-        // reading values
-        alert('tapCount: ' + ForceTouchData.tapCount);
-        alert('timestamp: ' + ForceTouchData.timestamp);
-        alert('phase: ' + ForceTouchData.phase);
-        alert('force: ' + ForceTouchData.force); // float from 0.0 to 1.0
-        alert('maximumPossibleForce: ' + ForceTouchData.maximumPossibleForce); // float
-      break;
-    }
+    case '0':
+      alert(status + 'Unknown');
+    break;
+    case '1':
+      alert(status + 'Unavailable');
+    break;
+    case '2':
+      alert(status + 'Available');
+      // reading values
+      alert('tapCount: ' + ForceTouchData.tapCount);
+      alert('timestamp: ' + ForceTouchData.timestamp);
+      alert('phase: ' + ForceTouchData.phase);
+      alert('force: ' + ForceTouchData.force); // float from 0.0 to 1.0
+      alert('maximumPossibleForce: ' + ForceTouchData.maximumPossibleForce); // float
+    break;
+  }
 });
 ```
 Install iOS platform
