@@ -22,16 +22,28 @@ Install the plugin
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 
 ```js
-    if(ForceTouch.isSupported)
+  // call the plugin for getting ForceTouch Data object
+  ForceTouch.getForceTouchData(function (ForceTouchData)
+  {
+    switch(ForceTouchData.forceTouchCapability)
     {
-      console.log('tapCount: '+ForceTouch.tapCount);
-      console.log('timestamp: '+ForceTouch.timestamp);
-      console.log('phase: '+ForceTouch.phase);
-      console.log('force: '+ForceTouch.force);
-      console.log('maximumPossibleForce: '+ForceTouch.maximumPossibleForce);
+      case '0':
+        alert('Force Touch Capability: Unknown');
+      break;
+      case '1':
+        alert('Force Touch: Unavailable');
+      break;
+      case '2':
+        alert('Force Touch: Available');
+        // reading values
+        alert('tapCount: '+ForceTouchData.tapCount);
+        alert('timestamp: '+ForceTouchData.timestamp);
+        alert('phase: '+ForceTouchData.phase);
+        alert('force: '+ForceTouchData.force); // float from 0.0 to 1.0
+        alert('maximumPossibleForce: '+ForceTouchData.maximumPossibleForce); // float
+      break;
     }
-    else
-      console.log('Force Touch not available on your device.');
+});
 ```
 Install iOS platform
 
@@ -41,7 +53,14 @@ Run the code
 
     cordova run
 
+## Apple Force Touch Documentation
+```
+https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html
+```
+
 ## Author
+```
 Matteo Pisani
 e-mail: matteo.pisani.91@gmail.com
 linkedin: www.linkedin.com/in/matteopisani
+```
