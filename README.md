@@ -71,7 +71,7 @@ Or
     cordova run ios --device
 
 ## Test Application
-<img src="screens/iPhone5-1.PNG"/>&nbsp;
+<img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
 
 ## ForceTouchData `(object)`
 ```json
