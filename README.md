@@ -53,7 +53,7 @@ Run the code
 
     cordova run ios
 
-    or
+Or
 
     cordova run ios --device
 
