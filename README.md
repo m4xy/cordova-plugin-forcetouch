@@ -51,7 +51,11 @@ Install iOS platform
 
 Run the code
 
-    cordova run
+    cordova run ios
+
+    or
+
+    cordova run ios --device
 
 ## Apple Force Touch Documentation
 ```
