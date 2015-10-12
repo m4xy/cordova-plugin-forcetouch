@@ -72,7 +72,7 @@ Or
 
 ## Test Application
 
-1. Not Supported Device Example (iPhone 5,1)
+1. iPhone 5,1 - Not Supported
 
 <img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
 
