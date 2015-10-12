@@ -25,22 +25,23 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
   // call the plugin for getting ForceTouch Data object
   ForceTouch.getForceTouchData(function (ForceTouchData)
   {
+    var status = 'Force Touch Status: ';
     switch(ForceTouchData.forceTouchCapability)
     {
       case '0':
-        alert('Force Touch Capability: Unknown');
+        alert(status + 'Unknown');
       break;
       case '1':
-        alert('Force Touch: Unavailable');
+        alert(status + 'Unavailable');
       break;
       case '2':
-        alert('Force Touch: Available');
+        alert(status + 'Available');
         // reading values
-        alert('tapCount: '+ForceTouchData.tapCount);
-        alert('timestamp: '+ForceTouchData.timestamp);
-        alert('phase: '+ForceTouchData.phase);
-        alert('force: '+ForceTouchData.force); // float from 0.0 to 1.0
-        alert('maximumPossibleForce: '+ForceTouchData.maximumPossibleForce); // float
+        alert('tapCount: ' + ForceTouchData.tapCount);
+        alert('timestamp: ' + ForceTouchData.timestamp);
+        alert('phase: ' + ForceTouchData.phase);
+        alert('force: ' + ForceTouchData.force); // float from 0.0 to 1.0
+        alert('maximumPossibleForce: ' + ForceTouchData.maximumPossibleForce); // float
       break;
     }
 });
