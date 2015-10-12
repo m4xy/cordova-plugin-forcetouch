@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+            id="cordova-plugin-forcetouch" version="1.0.0">
+        <name>Force Touch</name>
+        <description>Apple iOS Force Touch Plugin </description>
+        <license>Apache 2.0</license>
+        <keywords>cordova,apple,ios,force touch</keywords>
+        <js-module src="www/ForceTouch.js" name="ForceTouch">
+            <clobbers target="ForceTouch" />
+        </js-module>
+        <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="ForceTouch">
+                    <param name="ios-package" value="CDVForceTouch"/>
+                </feature>
+            </config-file>
+            <header-file src="src/ios/CDVForceTouch.h" />
+            <source-file src="src/ios/CDVForceTouch.m" />
+        </platform>
+    </plugin>
