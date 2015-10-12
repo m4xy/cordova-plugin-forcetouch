@@ -76,13 +76,21 @@ Or
 ## ForceTouchData `(object)`
 ```json
 {
-  "forceTouchCapability" : "0',   // (int enum) 0 || 1 || 2
-  "tapCount" : "0",               // (int)
-  "timestamp" : "0.000000",       // (float)
-  "phase" : "0",                  // (int)
-  "force" : "0.000000",           // (float) max value -> 1.0
-  "maximumPossibleForce" : "0.0"  // (float)
+  "forceTouchCapability" : "0',
+  "tapCount" : "0,
+  "timestamp" : "0.000000,
+  "phase" : "0",                  
+  "force" : "0.000000,
+  "maximumPossibleForce" : "0.0"
 }
+
+forceTouchCapability     (int enum) 0 || 1 || 2
+tapCount                 (int)
+timestamp                (float)
+phase                    (int)
+force                    (float) max value -> 1.0
+maximumPossibleForce     (float)
+
 ```
 
 ## Apple Official Force Touch Documentation for iOS
