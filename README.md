@@ -86,12 +86,11 @@ Or
     cordova run ios --device
 
 ## Test Application
-
-Inside the path `~/cordova-plugin-forcetouch/test/ForceTouchApplication` there's the `XCode iOS` test application,
+- Inside the path `~/cordova-plugin-forcetouch/test/ForceTouchApplication` there's the `XCode iOS` test application,
 just open it, build it, connect your device and deploy it in.
-When test application opens, it will start immediatly to acquire `ForceTouchData (object)`.
-Cordova core brings to JavaScript the object in question by calling through API `Force Touch Properties` of UITouch Class.
-By pressing the touchscreen, if your device is supported, you should read each of the `ForceTouchData Properties` listed below the "DEVICE IS READY".
+- When test application opens, it will start immediatly to acquire `ForceTouchData (object)`.
+- Cordova core brings to JavaScript the object in question by calling through API `Force Touch Properties` of UITouch Class.
+- By pressing the touchscreen, if your device is supported, you should read each of the `ForceTouchData Properties` listed below the "DEVICE IS READY".
 
 1. iPhone 5,1 (No ForceTouch)
 2. iPhone 8,1 (ForceTouch Supported)
