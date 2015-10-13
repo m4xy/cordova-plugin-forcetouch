@@ -5,12 +5,17 @@
 ```
 Matteo Pisani
 E-mail: matteo.pisani.91@gmail.com
-Linkedin: www.linkedin.com/in/matteopisani
+Linkedin: [http://www.linkedin.com/in/matteopisani](http://www.linkedin.com/in/matteopisani)
 ```
 
 ## Description
 This plugin allows developer to manage Force Touch readable variables of supported Apple devices.
 It returns Force Touch data, prefixed with "ForceTouch" object.
+
+## Supported Devices (Apple)
+- iPhone 6S
+- iPhone 6S Plus
+- iPad Pro
 
 ## Starting
 Create a new Cordova Project
@@ -40,29 +45,32 @@ Clone the plugin
 Edit `~/ForceTouchApplication/www/yourfile.js` and add the following code inside an `onDeviceReady` event
 
 ```js
-// call the plugin for getting ForceTouch Data object
-ForceTouch.getForceTouchData(function (ForceTouchData)
+document.addEventListener('deviceready', function ()
 {
-  var status = 'Force Touch Status: ';
-  switch(ForceTouchData.forceTouchCapability)
+  // call the plugin for getting ForceTouch Data object
+  ForceTouch.getForceTouchData(function (ForceTouchData)
   {
-    case '0':
-      alert(status + 'Unknown');
-    break;
-    case '1':
-      alert(status + 'Unavailable');
-    break;
-    case '2':
-      alert(status + 'Available');
-      // reading values
-      alert('tapCount: ' + ForceTouchData.tapCount);
-      alert('timestamp: ' + ForceTouchData.timestamp);
-      alert('phase: ' + ForceTouchData.phase);
-      alert('force: ' + ForceTouchData.force); // float from 0.0 to 1.0
-      alert('maximumPossibleForce: ' + ForceTouchData.maximumPossibleForce); // float
-    break;
-  }
-});
+    var status = 'Force Touch Status: ';
+    switch(ForceTouchData.forceTouchCapability)
+    {
+      case '0':
+        alert(status + 'Unknown');
+      break;
+      case '1':
+        alert(status + 'Unavailable');
+      break;
+      case '2':
+        alert(status + 'Available');
+        // reading values
+        alert('tapCount: ' + ForceTouchData.tapCount);
+        alert('timestamp: ' + ForceTouchData.timestamp);
+        alert('phase: ' + ForceTouchData.phase);
+        alert('force: ' + ForceTouchData.force); // float from 0.0 to 1.0
+        alert('maximumPossibleForce: ' + ForceTouchData.maximumPossibleForce); // float
+      break;
+    }
+  });
+}, false);
 ```
 ## Testing
 Install iOS platform
@@ -80,6 +88,7 @@ Or
 ## Test Application
 
 1. iPhone 5,1 (No ForceTouch)
+2. iPhone 8,1 (ForceTouch Supported)
 
 <img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
 
@@ -96,16 +105,16 @@ Or
 
 Types
 
-forceTouchCapability     (int enum) 0 || 1 || 2
+forceTouchCapability     (int enum) 0:UNKNOWN | 1:UNAVAILABLE | 2:AVAILABLE
 tapCount                 (int)
 timestamp                (float)
 phase                    (int)
-force                    (float) max value -> 1.0
+force                    (float) min value: 0.0 max value: 1.0
 maximumPossibleForce     (float)
 
 ```
 
 ## Apple Official Force Touch Documentation for iOS
 ```
-https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html
-```
+[https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html)
+]```
