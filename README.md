@@ -5,7 +5,7 @@
 ```
 Matteo Pisani
 E-mail: matteo.pisani.91@gmail.com
-Linkedin: [http://www.linkedin.com/in/matteopisani](http://www.linkedin.com/in/matteopisani)
+Linkedin: http://www.linkedin.com/in/matteopisani
 ```
 
 ## Description
@@ -116,5 +116,5 @@ maximumPossibleForce     (float)
 
 ## Apple Official Force Touch Documentation for iOS
 ```
-[https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html)
-]```
+https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITouch_Class/index.html
+```
