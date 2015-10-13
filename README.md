@@ -17,6 +17,9 @@ It returns Force Touch data, prefixed with "ForceTouch" object.
 - iPhone 6S Plus
 - iPad Pro
 
+## Supported OS
+- iOS => 9.0
+
 ## Starting
 Create a new Cordova Project
 
