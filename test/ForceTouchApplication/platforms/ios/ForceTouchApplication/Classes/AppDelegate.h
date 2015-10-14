@@ -29,8 +29,7 @@
 
 #import <Cordova/CDVViewController.h>
 
-@interface AppDelegate : NSObject <UIApplicationDelegate>{}
-
+@interface AppDelegate : NSObject <UIApplicationDelegate>
 // invoke string is passed to your app on launch, this is only valid if you
 // edit ForceTouchApplication-Info.plist to add a protocol
 // a simple tutorial can be found here :

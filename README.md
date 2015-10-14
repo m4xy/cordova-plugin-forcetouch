@@ -50,29 +50,54 @@ Edit `~/ForceTouchApplication/www/yourfile.js` and add the following code inside
 ```js
 document.addEventListener('deviceready', function ()
 {
-  // call the plugin for getting ForceTouch Data object
-  ForceTouch.getForceTouchData(function (ForceTouchData)
+  // on touch start cordova core asks to iOS for ForceTouchData
+  document.body.addEventListener('touchstart', function(e)
   {
-    var status = 'Force Touch Status: ';
-    switch(ForceTouchData.forceTouchCapability)
+    e.preventDefault();
+    // call the plugin for getting ForceTouch Data object
+    ForceTouch.getForceTouchData(function (ForceTouchData)
     {
-      case '0':
-        alert(status + 'Unknown');
-      break;
-      case '1':
-        alert(status + 'Unavailable');
-      break;
-      case '2':
-        alert(status + 'Available');
-        // reading values
-        alert('tapCount: ' + ForceTouchData.tapCount);
-        alert('timestamp: ' + ForceTouchData.timestamp);
-        alert('phase: ' + ForceTouchData.phase);
-        alert('force: ' + ForceTouchData.force); // float from 0.0 to 1.0
-        alert('maximumPossibleForce: ' + ForceTouchData.maximumPossibleForce); // float
-      break;
-    }
-  });
+      var forceTouchCapability = '';
+      switch(ForceTouchData.forceTouchCapability)
+      {
+        case '0':
+          forceTouchCapability += 'Unknown';
+        break;
+        case '1':
+          forceTouchCapability += 'Unavailable';
+        break;
+        case '2':
+          forceTouchCapability += 'Available';
+        break;
+      }
+      // setting output values
+      document.getElementById('forceTouchCapability').innerHTML = forceTouchCapability;
+      document.getElementById('tapCount').innerHTML = ForceTouchData.tapCount;
+      document.getElementById('timestamp').innerHTML = ForceTouchData.timestamp;
+      document.getElementById('phase').innerHTML = ForceTouchData.phase;
+      document.getElementById('force').innerHTML = ForceTouchData.force;
+      document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.maximumPossibleForce;
+
+      // check if ForceTouch or StandardTouch
+      if(parseFloat(ForceTouchData.force) > 0.0)
+        console.log('ForceTouch');
+      else
+        console.log('StandardTouch');
+    });
+  }, false);
+
+  // on touch values are set to original state
+  document.body.addEventListener('touchend', function(e)
+  {
+    e.preventDefault();
+    // restore output values
+    document.getElementById('forceTouchCapability').innerHTML = '-';
+    document.getElementById('tapCount').innerHTML = '-';
+    document.getElementById('timestamp').innerHTML = '-';
+    document.getElementById('phase').innerHTML = '-';
+    document.getElementById('force').innerHTML = '-';
+    document.getElementById('maximumPossibleForce').innerHTML = '-';
+  }, false);
 }, false);
 ```
 ## Testing
@@ -96,9 +121,12 @@ just open it, build it, connect your device and deploy it in.
 - By pressing the touchscreen, if your device is supported, you should read each of the `ForceTouchData Properties` listed below the "DEVICE IS READY".
 
 1. iPhone 5,1 (No ForceTouch)
-2. iPhone 8,1 (ForceTouch Supported)
 
 <img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
+
+2. iPhone 8,1 (ForceTouch Supported)
+
+<img src="screens/iPhone8-1.PNG" width="250"/>&nbsp;
 
 ## ForceTouchData `(object)`
 ```json

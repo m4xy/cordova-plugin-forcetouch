@@ -35,9 +35,11 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        var fti = setInterval(function()
+
+        // on touch start cordova core asks to iOS for ForceTouchData
+        document.body.addEventListener('touchstart', function(e)
         {
-          // call the plugin for getting ForceTouch Data object
+          e.preventDefault();
           ForceTouch.getForceTouchData(function (ForceTouchData)
           {
             var forceTouchCapability = '';
@@ -60,8 +62,27 @@ var app = {
             document.getElementById('phase').innerHTML = ForceTouchData.phase;
             document.getElementById('force').innerHTML = ForceTouchData.force;
             document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.maximumPossibleForce;
+
+            // check if ForceTouch or StandardTouch
+            if(parseFloat(ForceTouchData.force) > 0.0)
+              console.log('ForceTouch');
+            else
+              console.log('StandardTouch');
           });
-        },15);  //60 FPS -> reads ForceTouchData 60 times/sec
+        }, false);
+
+        // on touch values are set to original state
+        document.body.addEventListener('touchend', function(e)
+        {
+          e.preventDefault();
+          // restore output values
+          document.getElementById('forceTouchCapability').innerHTML = '-';
+          document.getElementById('tapCount').innerHTML = '-';
+          document.getElementById('timestamp').innerHTML = '-';
+          document.getElementById('phase').innerHTML = '-';
+          document.getElementById('force').innerHTML = '-';
+          document.getElementById('maximumPossibleForce').innerHTML = '-';
+        }, false);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
