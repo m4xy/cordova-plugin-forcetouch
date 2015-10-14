@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch)
+### (cordova-plugin-forcetouch v1.1.2)
 
 ## Author
 ```
@@ -120,11 +120,11 @@ just open it, build it, connect your device and deploy it in.
 - Cordova core brings to JavaScript the object in question by calling through API `Force Touch Properties` of UITouch Class.
 - By pressing the touchscreen, if your device is supported, you should read each of the `ForceTouchData Properties` listed below the "DEVICE IS READY".
 
-1. iPhone 5,1 (No ForceTouch)
+- Phone 5,1 (No ForceTouch)
 
 <img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
 
-2. iPhone 8,1 (ForceTouch Supported)
+- iPhone 8,1 (ForceTouch Supported)
 
 <img src="screens/iPhone8-1.PNG" width="250"/>&nbsp;
 
