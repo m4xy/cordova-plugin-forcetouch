@@ -115,7 +115,7 @@ Or
 
 ## Demo Video
 
-[![cordova-plugin-forcetouch test application running on iPhone 6S)](screens/youtube)](https://www.youtube.com/watch?v=bDQ5jGhM0ZY)
+[![cordova-plugin-forcetouch test application running on iPhone 6S)](screens/YouTube.png)](https://www.youtube.com/watch?v=bDQ5jGhM0ZY)
 
 ## Test Application
 - Inside the path `~/cordova-plugin-forcetouch/test/ForceTouchApplication` there's the `XCode iOS` test application,
