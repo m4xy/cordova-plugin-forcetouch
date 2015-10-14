@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.2)
+### (cordova-plugin-forcetouch v1.1.3)
 
 ## Author
 ```
@@ -113,6 +113,10 @@ Or
 
     cordova run ios --device
 
+## Demo Video
+
+[![cordova-plugin-forcetouch test application running on iPhone 6S)](screens/youtube)](https://www.youtube.com/watch?v=bDQ5jGhM0ZY)
+
 ## Test Application
 - Inside the path `~/cordova-plugin-forcetouch/test/ForceTouchApplication` there's the `XCode iOS` test application,
 just open it, build it, connect your device and deploy it in.
@@ -122,11 +126,11 @@ just open it, build it, connect your device and deploy it in.
 
 - Phone 5,1 (No ForceTouch)
 
-<img src="screens/iPhone5-1.PNG" width="250"/>&nbsp;
+<img src="screens/iPhone5-1.PNG" width="300"/>&nbsp;
 
 - iPhone 8,1 (ForceTouch Supported)
 
-<img src="screens/iPhone8-1.PNG" width="250"/>&nbsp;
+<img src="screens/iPhone8-1.PNG" width="300"/>&nbsp;
 
 ## ForceTouchData `(object)`
 ```json
