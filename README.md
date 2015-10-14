@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.3)
+### (cordova-plugin-forcetouch v1.1.4)
 
 ## Author
 ```
