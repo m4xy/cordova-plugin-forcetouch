@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.4)
+### (cordova-plugin-forcetouch v1.1.5)
 
 ## Author
 ```
@@ -77,16 +77,15 @@ document.addEventListener('deviceready', function ()
       document.getElementById('phase').innerHTML = ForceTouchData.phase;
       document.getElementById('force').innerHTML = ForceTouchData.force;
       document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.maximumPossibleForce;
-
       // check if ForceTouch or StandardTouch
       if(parseFloat(ForceTouchData.force) > 0.0)
-        console.log('ForceTouch');
+        document.getElementById('touchType').innerHTML = 'Force Touch';
       else
-        console.log('StandardTouch');
+        document.getElementById('touchType').innerHTML = 'Standard Touch';
     });
   }, false);
 
-  // on touch values are set to original state
+  // on touch end values are set to original state
   document.body.addEventListener('touchend', function(e)
   {
     e.preventDefault();

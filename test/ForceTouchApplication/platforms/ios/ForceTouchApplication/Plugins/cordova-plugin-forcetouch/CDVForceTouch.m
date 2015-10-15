@@ -9,8 +9,7 @@
 - (void)pluginInitialize
 {
     self.forceTouchCapability = [self.webView.traitCollection forceTouchCapability];
-    UITapGestureRecognizer *ForceTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
-    ForceTouch.numberOfTapsRequired = 1;
+    UIGestureRecognizer *ForceTouch = [[UIGestureRecognizer alloc] initWithTarget:self action:nil];
     ForceTouch.delegate = self;
     [self.webView addGestureRecognizer:ForceTouch];
 }

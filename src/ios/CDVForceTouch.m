@@ -9,8 +9,7 @@
 - (void)pluginInitialize
 {
     self.forceTouchCapability = [self.webView.traitCollection forceTouchCapability];
-    UITapGestureRecognizer *ForceTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
-    ForceTouch.numberOfTapsRequired = 1;
+    UIGestureRecognizer *ForceTouch = [[UIGestureRecognizer alloc] initWithTarget:self action:nil];
     ForceTouch.delegate = self;
     [self.webView addGestureRecognizer:ForceTouch];
 }
@@ -22,10 +21,6 @@
     self.phase = touch.phase;
     self.force = touch.force;
     self.maximumPossibleForce = touch.maximumPossibleForce;
-
-    NSDictionary* ForceTouchData = [self ForceTouchData];
-    for (id key in ForceTouchData)
-        NSLog(@"key: %@, value: %@ \n", key, [ForceTouchData objectForKey:key]);
 }
 
 - (void)getForceTouchData:(CDVInvokedUrlCommand*)command

@@ -62,12 +62,11 @@ var app = {
             document.getElementById('phase').innerHTML = ForceTouchData.phase;
             document.getElementById('force').innerHTML = ForceTouchData.force;
             document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.maximumPossibleForce;
-
             // check if ForceTouch or StandardTouch
             if(parseFloat(ForceTouchData.force) > 0.0)
-              console.log('ForceTouch');
+              document.getElementById('touchType').innerHTML = 'Force Touch';
             else
-              console.log('StandardTouch');
+              document.getElementById('touchType').innerHTML = 'Standard Touch';
           });
         }, false);
 
@@ -82,6 +81,7 @@ var app = {
           document.getElementById('phase').innerHTML = '-';
           document.getElementById('force').innerHTML = '-';
           document.getElementById('maximumPossibleForce').innerHTML = '-';
+          document.getElementById('touchType').innerHTML = '-';
         }, false);
     },
     // Update DOM on a Received Event
