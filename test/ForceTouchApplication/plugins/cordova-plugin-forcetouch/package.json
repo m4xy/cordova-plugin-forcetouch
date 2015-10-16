@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-forcetouch",
-  "version": "1.0.4",
+  "version": "1.1.6",
   "description": "Cordova Plugin iOS Force Touch",
   "main": "ForceTouch.js",
   "scripts": {
@@ -14,11 +14,13 @@
     "cordova",
     "apple",
     "ios",
+    "3D Touch",
     "force touch",
     "pressure control",
     "touch sensitivity",
+    "touch pressure",
     "touch phase",
-    "3D Touch"
+    "tap count"
   ],
   "author": "Matteo Pisani",
   "license": "Apache-2.0",

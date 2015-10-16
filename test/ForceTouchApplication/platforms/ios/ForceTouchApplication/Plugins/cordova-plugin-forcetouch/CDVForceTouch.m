@@ -11,6 +11,7 @@
     self.forceTouchCapability = [self.webView.traitCollection forceTouchCapability];
     UIGestureRecognizer *ForceTouch = [[UIGestureRecognizer alloc] initWithTarget:self action:nil];
     ForceTouch.delegate = self;
+    [self.webView setUserInteractionEnabled:YES];
     [self.webView addGestureRecognizer:ForceTouch];
 }
 

@@ -37,7 +37,7 @@ var app = {
         app.receivedEvent('deviceready');
 
         // on touch start cordova core asks to iOS for ForceTouchData
-        document.body.addEventListener('touchstart', function(e)
+        window.addEventListener('touchstart', function(e)
         {
           e.preventDefault();
           ForceTouch.getForceTouchData(function (ForceTouchData)
@@ -71,7 +71,7 @@ var app = {
         }, false);
 
         // on touch values are set to original state
-        document.body.addEventListener('touchend', function(e)
+        window.addEventListener('touchend', function(e)
         {
           e.preventDefault();
           // restore output values

@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.5)
+### (cordova-plugin-forcetouch v1.1.6)
 
 ## Author
 ```
@@ -51,7 +51,7 @@ Edit `~/ForceTouchApplication/www/yourfile.js` and add the following code inside
 document.addEventListener('deviceready', function ()
 {
   // on touch start cordova core asks to iOS for ForceTouchData
-  document.body.addEventListener('touchstart', function(e)
+  window.addEventListener('touchstart', function(e)
   {
     e.preventDefault();
     // call the plugin for getting ForceTouch Data object
@@ -86,7 +86,7 @@ document.addEventListener('deviceready', function ()
   }, false);
 
   // on touch end values are set to original state
-  document.body.addEventListener('touchend', function(e)
+  window.addEventListener('touchend', function(e)
   {
     e.preventDefault();
     // restore output values
