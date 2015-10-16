@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.6)
+### (cordova-plugin-forcetouch v1.1.7)
 
 ## Author
 ```
@@ -50,54 +50,47 @@ Edit `~/ForceTouchApplication/www/yourfile.js` and add the following code inside
 ```js
 document.addEventListener('deviceready', function ()
 {
-  // on touch start cordova core asks to iOS for ForceTouchData
-  window.addEventListener('touchstart', function(e)
-  {
-    e.preventDefault();
-    // call the plugin for getting ForceTouch Data object
-    ForceTouch.getForceTouchData(function (ForceTouchData)
-    {
-      var forceTouchCapability = '';
-      switch(ForceTouchData.forceTouchCapability)
-      {
-        case '0':
-          forceTouchCapability += 'Unknown';
-        break;
-        case '1':
-          forceTouchCapability += 'Unavailable';
-        break;
-        case '2':
-          forceTouchCapability += 'Available';
-        break;
-      }
-      // setting output values
-      document.getElementById('forceTouchCapability').innerHTML = forceTouchCapability;
-      document.getElementById('tapCount').innerHTML = ForceTouchData.tapCount;
-      document.getElementById('timestamp').innerHTML = ForceTouchData.timestamp;
-      document.getElementById('phase').innerHTML = ForceTouchData.phase;
-      document.getElementById('force').innerHTML = ForceTouchData.force;
-      document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.maximumPossibleForce;
-      // check if ForceTouch or StandardTouch
-      if(parseFloat(ForceTouchData.force) > 0.0)
-        document.getElementById('touchType').innerHTML = 'Force Touch';
-      else
-        document.getElementById('touchType').innerHTML = 'Standard Touch';
-    });
-  }, false);
-
-  // on touch end values are set to original state
-  window.addEventListener('touchend', function(e)
-  {
-    e.preventDefault();
-    // restore output values
-    document.getElementById('forceTouchCapability').innerHTML = '-';
-    document.getElementById('tapCount').innerHTML = '-';
-    document.getElementById('timestamp').innerHTML = '-';
-    document.getElementById('phase').innerHTML = '-';
-    document.getElementById('force').innerHTML = '-';
-    document.getElementById('maximumPossibleForce').innerHTML = '-';
-  }, false);
+  // on cordova start, asks plugin continuosly for ForceTouchData
+  setInterval(getForceTouchData,15); // 15? => 1000ms/15 = ~60fps;
 }, false);
+
+// getForceTouchData Method
+function getForceTouchData()
+{
+  ForceTouch.getForceTouchData(function (ForceTouchData)
+  {
+    var forceTouchCapability = '';
+    switch(ForceTouchData.forceTouchCapability)
+    {
+      case '0':
+        forceTouchCapability += 'Unknown';
+      break;
+      case '1':
+        forceTouchCapability += 'Unavailable';
+      break;
+      case '2':
+        forceTouchCapability += 'Available';
+      break;
+    }
+    // setting output values
+    document.getElementById('forceTouchCapability').innerHTML = forceTouchCapability;
+    document.getElementById('tapCount').innerHTML = ForceTouchData.tapCount;
+    document.getElementById('timestamp').innerHTML = ForceTouchData.timestamp;
+    document.getElementById('phase').innerHTML = ForceTouchData.phase;
+    document.getElementById('force').innerHTML = ForceTouchData.force;
+    document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.maximumPossibleForce;
+    // check if No Touch, ForceTouch or StandardTouch on the screen
+    var force = parseFloat(ForceTouchData.force);
+    if(force > 0.0 && force < 0.08)
+      document.getElementById('touchType').innerHTML = 'Standard Touch';
+    else
+    if(force > 0.8)
+      document.getElementById('touchType').innerHTML = 'Force Touch';
+    else
+    if(force == 0.0)
+      document.getElementById('touchType').innerHTML = 'No Touch';
+  });
+}
 ```
 ## Testing
 Install iOS platform
@@ -114,7 +107,7 @@ Or
 
 ## Demo Video
 
-[![cordova-plugin-forcetouch test application running on iPhone 6S)](screens/YouTube.png)](https://www.youtube.com/watch?v=bDQ5jGhM0ZY)
+[![cordova-plugin-forcetouch test application running on iPhone 6S)](screens/YouTube.png)](https://youtu.be/IaXFXLSB_dk)
 
 ## Test Application
 - Inside the path `~/cordova-plugin-forcetouch/test/ForceTouchApplication` there's the `XCode iOS` test application,

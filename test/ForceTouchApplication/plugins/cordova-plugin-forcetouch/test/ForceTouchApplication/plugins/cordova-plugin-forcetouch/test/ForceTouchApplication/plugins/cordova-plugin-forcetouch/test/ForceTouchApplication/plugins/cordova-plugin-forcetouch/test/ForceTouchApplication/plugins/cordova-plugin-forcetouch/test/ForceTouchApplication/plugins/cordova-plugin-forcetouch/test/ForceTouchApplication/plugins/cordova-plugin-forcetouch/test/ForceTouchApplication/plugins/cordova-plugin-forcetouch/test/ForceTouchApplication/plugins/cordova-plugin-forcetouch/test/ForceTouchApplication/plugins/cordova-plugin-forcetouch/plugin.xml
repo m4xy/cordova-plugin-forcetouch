@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-            id="cordova-plugin-forcetouch" version="1.1.6">
+            id="cordova-plugin-forcetouch" version="1.1.7">
         <name>Force Touch</name>
         <description>Apache Cordova @ Apple iOS Force Touch Plugin</description>
         <license>Apache 2.0</license>
         <keywords>cordova,apple,ios,force touch,3dtouch</keywords>
-        <js-module src="www/ForceTouch.js" name="ForceTouch">
+        <js-module src="ForceTouch.js" name="ForceTouch">
             <clobbers target="ForceTouch" />
         </js-module>
         <platform name="ios">
