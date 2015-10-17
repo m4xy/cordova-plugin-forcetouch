@@ -1,6 +1,7 @@
 # Cordova iOS Force Touch Plugin
-<img src="cordova-plugin-forcetouch-icon.png" width="300"/>&nbsp;
 ### (cordova-plugin-forcetouch v1.1.8)
+
+<img src="cordova-plugin-forcetouch-icon.png" width="300"/>&nbsp;
 
 ## Author
 ```
