@@ -39,7 +39,7 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		B1D75685B4304DB3A21042B3 /* CDVForceTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B6C2A8EEF0430FBDBA698E /* CDVForceTouch.m */; };
+		DC81B27A29D640498BC055D9 /* CDVForceTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = BA04554AC7CC42EA9AC70B1A /* CDVForceTouch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,8 +103,8 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ForceTouchApplication/config.xml; sourceTree = "<group>"; };
-		72B6C2A8EEF0430FBDBA698E /* CDVForceTouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVForceTouch.m"; path = "cordova-plugin-forcetouch/CDVForceTouch.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		682BA03DF9F84AAFBD9D2505 /* CDVForceTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVForceTouch.h"; path = "cordova-plugin-forcetouch/CDVForceTouch.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		BA04554AC7CC42EA9AC70B1A /* CDVForceTouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVForceTouch.m"; path = "cordova-plugin-forcetouch/CDVForceTouch.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		6DF9E785729F4B9ABF8B9159 /* CDVForceTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVForceTouch.h"; path = "cordova-plugin-forcetouch/CDVForceTouch.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +203,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				72B6C2A8EEF0430FBDBA698E /* CDVForceTouch.m */,
-				682BA03DF9F84AAFBD9D2505 /* CDVForceTouch.h */,
+				BA04554AC7CC42EA9AC70B1A /* CDVForceTouch.m */,
+				6DF9E785729F4B9ABF8B9159 /* CDVForceTouch.h */,
 			);
 			name = Plugins;
 			path = ForceTouchApplication/Plugins;
@@ -394,7 +394,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				B1D75685B4304DB3A21042B3 /* CDVForceTouch.m in Sources */,
+				DC81B27A29D640498BC055D9 /* CDVForceTouch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

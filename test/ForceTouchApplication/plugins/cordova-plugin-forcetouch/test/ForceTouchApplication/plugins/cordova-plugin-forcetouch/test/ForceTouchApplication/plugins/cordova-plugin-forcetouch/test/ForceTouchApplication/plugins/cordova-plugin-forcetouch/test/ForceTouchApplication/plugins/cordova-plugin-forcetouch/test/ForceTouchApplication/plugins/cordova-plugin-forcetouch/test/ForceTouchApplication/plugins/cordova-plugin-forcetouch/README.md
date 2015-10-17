@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.9)
+### (cordova-plugin-forcetouch v1.2.0)
 
 </br>
 </br>
@@ -101,6 +101,9 @@ function getForceTouchData()
       else
       if(force > 0.08)
         document.getElementById('touchType').innerHTML = 'Force Touch';
+
+      // printing Touch Point position coordinates
+      console.log("x: " + ForceTouchData.touches[0].position.x+ ";" + "y:" + ForceTouchData.touches[0].position.y);
     }
     else
     {
@@ -112,7 +115,6 @@ function getForceTouchData()
       document.getElementById('maximumPossibleForce').innerHTML = '0.000000';
       document.getElementById('touchType').innerHTML = 'No Touch';
     }
-
     // printing ForceTouchData output for each Touch Point available on screen
     console.log(JSON.stringify(ForceTouchData.touches));
   });
@@ -158,6 +160,10 @@ just open it, build it, connect your device and deploy it in.
     "forceTouchCapability": 2,
     "touches": {
         "0": {
+            "position":{
+              "x": "345.5",
+              "y":258.1
+            }
             "force": "0.783153",
             "maximumPossibleForce": "6.666667",
             "phase": "1",

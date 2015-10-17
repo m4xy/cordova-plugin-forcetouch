@@ -12,7 +12,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-forcetouch": "1.1.9"
+    "cordova-plugin-forcetouch": "1.2.0"
 }
 // BOTTOM OF METADATA
 });
