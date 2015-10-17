@@ -1,5 +1,10 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.8)
+### (cordova-plugin-forcetouch v1.1.9)
+
+</br>
+</br>
+
+<img src="cordova-plugin-forcetouch-icon.png" width="300"/>&nbsp;
 
 ## Author
 ```
@@ -9,8 +14,9 @@ Linkedin: http://www.linkedin.com/in/matteopisani
 ```
 
 ## Description
-This plugin allows developer to manage Force Touch readable variables of supported Apple devices.
-It returns Force Touch data, prefixed with "ForceTouch" object.
+This plugin allows developer to manage Force Touch readable values of supported Apple devices.
+
+It returns Force Touch data, prefixed with "ForceTouch" object, for each Touch Point available on the screen.
 
 ## Supported Devices (Apple)
 - iPhone 6S
@@ -145,6 +151,8 @@ just open it, build it, connect your device and deploy it in.
 <img src="screens/iPhone8-1.PNG" width="300"/>&nbsp;
 
 ## ForceTouchData `(object)`
+- iPhone 6S/6S Plus: From 1 to 5 touches
+- iPad Pro: From 1 to 10 touches
 ```json
 {
     "forceTouchCapability": 2,
@@ -171,15 +179,16 @@ just open it, build it, connect your device and deploy it in.
             "timestamp": "2532.385464"
         },
         "3": {
-            "force": "0.387500",
+            "force": "0.237816",
             "maximumPossibleForce": "6.666667",
             "phase": "1",
             "tapCount": "1",
-            "timestamp": "2532.385464"
+            "timestamp": "2532.615237"
         },
-        ...
+        [...]
     }
 }
+```
 
 ## Multi-Touch Handling
 ```js
@@ -188,15 +197,12 @@ for(var i=0; i < touchesCount; i++)
 {
   // storing touch object at index "i"
   var currentTouch = ForceTouchData.touches[i];
-
   // accessing to ForceTouchData
   console.log(currentTouch.force);
   console.log(currentTouch.maximumPossibleForce);
   console.log(currentTouch.phase);
   console.log(currentTouch.tapCount);
   console.log(currentTouch.timestamp);
-
-  // ...
   // and so on for each loop cycle
 }
 ```

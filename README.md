@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.1.8)
+### (cordova-plugin-forcetouch v1.1.9)
 
 </br>
 </br>
@@ -15,6 +15,7 @@ Linkedin: http://www.linkedin.com/in/matteopisani
 
 ## Description
 This plugin allows developer to manage Force Touch readable values of supported Apple devices.
+
 It returns Force Touch data, prefixed with "ForceTouch" object, for each Touch Point available on the screen.
 
 ## Supported Devices (Apple)
