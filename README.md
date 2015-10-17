@@ -150,6 +150,8 @@ just open it, build it, connect your device and deploy it in.
 <img src="screens/iPhone8-1.PNG" width="300"/>&nbsp;
 
 ## ForceTouchData `(object)`
+- iPhone 6S/6S Plus: From 1 to 5 touches
+- iPad Pro: From 1 to 10 touches
 ```json
 {
     "forceTouchCapability": 2,
