@@ -182,7 +182,7 @@ just open it, build it, connect your device and deploy it in.
             "maximumPossibleForce": "6.666667",
             "phase": "1",
             "tapCount": "1",
-            "timestamp": "2532.385464"
+            "timestamp": "2532.615237"
         },
         [...]
     }
