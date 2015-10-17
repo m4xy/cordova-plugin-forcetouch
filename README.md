@@ -176,7 +176,7 @@ just open it, build it, connect your device and deploy it in.
             "timestamp": "2532.385464"
         },
         "3": {
-            "force": "0.387500",
+            "force": "0.237816",
             "maximumPossibleForce": "6.666667",
             "phase": "1",
             "tapCount": "1",
