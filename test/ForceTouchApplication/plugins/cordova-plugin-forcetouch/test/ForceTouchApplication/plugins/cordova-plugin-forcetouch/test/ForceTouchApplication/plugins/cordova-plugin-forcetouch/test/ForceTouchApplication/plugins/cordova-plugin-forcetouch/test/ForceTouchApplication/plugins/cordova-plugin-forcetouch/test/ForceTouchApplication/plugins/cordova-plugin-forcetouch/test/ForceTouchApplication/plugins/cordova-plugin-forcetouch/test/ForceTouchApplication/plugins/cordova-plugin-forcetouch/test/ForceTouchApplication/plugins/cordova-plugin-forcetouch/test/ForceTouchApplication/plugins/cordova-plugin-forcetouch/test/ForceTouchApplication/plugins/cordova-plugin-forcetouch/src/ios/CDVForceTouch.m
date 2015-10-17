@@ -1,3 +1,12 @@
+/*
+ * Project: cordova-plugin-forcetouch
+ * Version: 1.1.8
+ * File: CDVForceTouch.m
+ * Author: Matteo Pisani
+ * E-Mail: matteo.pisani.91@gmail.com
+ * Linkedin: https://www.linkedin.com/in/matteopisani
+ */
+
 #import <Cordova/CDV.h>
 #import "CDVForceTouch.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
@@ -7,36 +16,24 @@
 
 @implementation CDVForceTouch
 
-- (void)initForceTouchDataRecognizer:(CDVInvokedUrlCommand*)command
+- (void)initForceTouchPlugin:(CDVInvokedUrlCommand*)command
 {
+    ForceTouchPoints = [NSMutableDictionary dictionary];
     forceTouchCapability = [self.webView.traitCollection forceTouchCapability];
     CDVForceTouchRecognizer * ForceTouchRecognizer = [[CDVForceTouchRecognizer alloc] initWithTarget:self action:nil];
     ForceTouchRecognizer.delegate = self;
-    self.webView.multipleTouchEnabled = NO;
+    self.webView.multipleTouchEnabled = YES;
     [self.webView setUserInteractionEnabled:YES];
     [self.webView addGestureRecognizer: ForceTouchRecognizer];
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)getForceTouchData:(CDVInvokedUrlCommand*)command
 {
-    NSDictionary* ForceTouchData = [self ForceTouchData];
+    NSMutableDictionary* ForceTouchData = [NSMutableDictionary dictionaryWithCapacity:2];
+    [ForceTouchData setObject:[NSString stringWithFormat:@"%ld",(long)forceTouchCapability] forKey:@"forceTouchCapability"];
+    [ForceTouchData setObject:ForceTouchPoints forKey:@"touches"];
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:ForceTouchData];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-}
-
-- (NSDictionary*)ForceTouchData
-{
-    NSMutableDictionary* data = [NSMutableDictionary dictionaryWithCapacity:6];
-    [data setObject:[NSString stringWithFormat:@"%ld",(long)forceTouchCapability] forKey:@"forceTouchCapability"];
-    [data setObject:[NSString stringWithFormat:@"%ld",(unsigned long)tapCount] forKey:@"tapCount"];
-    [data setObject:[NSString stringWithFormat:@"%f",timestamp] forKey:@"timestamp"];
-    [data setObject:[NSString stringWithFormat:@"%ld",(long)phase] forKey:@"phase"];
-    [data setObject:[NSString stringWithFormat:@"%f",force] forKey:@"force"];
-    [data setObject:[NSString stringWithFormat:@"%f",maximumPossibleForce] forKey:@"maximumPossibleForce"];
-    NSDictionary* cordovaData = [NSDictionary dictionaryWithDictionary:data];
-    return cordovaData;
 }
 
 @end
@@ -60,37 +57,40 @@
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesCancelled:touches withEvent:event];
-    [self restoreForceTouchData:touches withEvent:event];
+    [self cleanForceTouchData:touches withEvent:event];
 }
 
 - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesCancelled:touches withEvent:event];
-    [self restoreForceTouchData:touches withEvent:event];
+    [self cleanForceTouchData:touches withEvent:event];
 }
 
 - (void)setForceTouchData:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (event.type == UIEventTypeTouches)
     {
+        NSUInteger touchIndex = 0;
         for (UITouch *touch in touches)
         {
-            tapCount = touch.tapCount;
-            timestamp = touch.timestamp;
-            phase = touch.phase;
-            force = touch.force/touch.maximumPossibleForce;
-            maximumPossibleForce = touch.maximumPossibleForce;
+            NSMutableDictionary* TouchData = [NSMutableDictionary dictionaryWithCapacity:5];
+            [TouchData setObject:[NSString stringWithFormat:@"%ld",(unsigned long)touch.tapCount] forKey:@"tapCount"];
+            [TouchData setObject:[NSString stringWithFormat:@"%f",touch.timestamp] forKey:@"timestamp"];
+            [TouchData setObject:[NSString stringWithFormat:@"%ld",(long)touch.phase] forKey:@"phase"];
+            if(touch.force > 0.0)
+                [TouchData setObject:[NSString stringWithFormat:@"%f",touch.force/touch.maximumPossibleForce] forKey:@"force"];
+            else
+                [TouchData setObject:@"0.0" forKey:@"force"];
+            [TouchData setObject:[NSString stringWithFormat:@"%f",touch.maximumPossibleForce] forKey:@"maximumPossibleForce"];
+            NSDictionary* TouchDataObject = [NSDictionary dictionaryWithDictionary:TouchData];
+            [ForceTouchPoints setObject:TouchDataObject forKey:[NSString stringWithFormat:@"%d",touchIndex++]];
         }
     }
 }
 
-- (void)restoreForceTouchData:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (void)cleanForceTouchData:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    tapCount = 0;
-    timestamp = 0.0;
-    phase = 0;
-    force = 0.0;
-    maximumPossibleForce = 0.0;
+    ForceTouchPoints = [NSMutableDictionary dictionary];
 }
 
 @end

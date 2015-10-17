@@ -16,11 +16,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 // getForceTouchData Method
 function getForceTouchData()
 {
   ForceTouch.getForceTouchData(function (ForceTouchData)
   {
+    // checking if device allows ForceTouch interaction
     var forceTouchCapability = '';
     switch(ForceTouchData.forceTouchCapability)
     {
@@ -34,23 +36,42 @@ function getForceTouchData()
         forceTouchCapability += 'Available';
       break;
     }
-    // setting output values
+
     document.getElementById('forceTouchCapability').innerHTML = forceTouchCapability;
-    document.getElementById('tapCount').innerHTML = ForceTouchData.tapCount;
-    document.getElementById('timestamp').innerHTML = ForceTouchData.timestamp;
-    document.getElementById('phase').innerHTML = ForceTouchData.phase;
-    document.getElementById('force').innerHTML = ForceTouchData.force;
-    document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.maximumPossibleForce;
-    // check if ForceTouch or StandardTouch
-    var force = parseFloat(ForceTouchData.force);
-    if(force > 0.0 && force < 0.08)
-      document.getElementById('touchType').innerHTML = 'Standard Touch';
+
+    if(ForceTouchData.touches[0])
+    {
+      // setting output values for first Touch Point at index:0 -> "ForceTouchData.touches[0]"
+      document.getElementById('tapCount').innerHTML = ForceTouchData.touches[0].tapCount;
+      document.getElementById('timestamp').innerHTML = ForceTouchData.touches[0].timestamp;
+      document.getElementById('phase').innerHTML = ForceTouchData.touches[0].phase;
+      document.getElementById('force').innerHTML = ForceTouchData.touches[0].force;
+      document.getElementById('maximumPossibleForce').innerHTML = ForceTouchData.touches[0].maximumPossibleForce;
+
+      var force = parseFloat(ForceTouchData.touches[0].force);
+      // checking if No Touch or StandardTouch or Force Touch
+      if(ForceTouchData.touches[0].tapCount == 0 && force == 0.0)
+        document.getElementById('touchType').innerHTML = 'No Touch';
+      else
+      if((ForceTouchData.touches[0].tapCount > 0 && force == 0.0) || (force > 0.0 && force < 0.08))
+        document.getElementById('touchType').innerHTML = 'Standard Touch';
+      else
+      if(force > 0.08)
+        document.getElementById('touchType').innerHTML = 'Force Touch';
+    }
     else
-    if(force > 0.8)
-      document.getElementById('touchType').innerHTML = 'Force Touch';
-    else
-    if(force == 0.0)
+    {
+      // no Touch Point available -> resetting output values
+      document.getElementById('tapCount').innerHTML = '0';
+      document.getElementById('timestamp').innerHTML = '0.000000';
+      document.getElementById('phase').innerHTML = '0';
+      document.getElementById('force').innerHTML = '0.000000';
+      document.getElementById('maximumPossibleForce').innerHTML = '0.000000';
       document.getElementById('touchType').innerHTML = 'No Touch';
+    }
+
+    // printing ForceTouchData output for each Touch Point available on screen
+    console.log(JSON.stringify(ForceTouchData.touches));
   });
 }
 
