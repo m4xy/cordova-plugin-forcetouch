@@ -180,7 +180,7 @@ just open it, build it, connect your device and deploy it in.
             "tapCount": "1",
             "timestamp": "2532.385464"
         },
-        {...}
+        ...
     }
 }
 
@@ -189,18 +189,12 @@ just open it, build it, connect your device and deploy it in.
 var touchesCount = Object.keys(ForceTouchData.touches).length;
 for(var i=0; i < touchesCount; i++)
 {
-  // storing touch object at index "i"
   var currentTouch = ForceTouchData.touches[i];
-
-  // accessing to ForceTouchData
   console.log(currentTouch.force);
   console.log(currentTouch.maximumPossibleForce);
   console.log(currentTouch.phase);
   console.log(currentTouch.tapCount);
   console.log(currentTouch.timestamp);
-
-  // ...
-  // and so on for each loop cycle
 }
 ```
 
