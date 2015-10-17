@@ -2,6 +2,8 @@
 ### (cordova-plugin-forcetouch v1.1.8)
 
 </br>
+</br>
+
 <img src="cordova-plugin-forcetouch-icon.png" width="300"/>&nbsp;
 
 ## Author
@@ -148,6 +150,7 @@ just open it, build it, connect your device and deploy it in.
 <img src="screens/iPhone8-1.PNG" width="300"/>&nbsp;
 
 ## ForceTouchData `(object)`
+- 4 fingers on screen example:
 ```json
 {
     "forceTouchCapability": 2,
@@ -179,8 +182,7 @@ just open it, build it, connect your device and deploy it in.
             "phase": "1",
             "tapCount": "1",
             "timestamp": "2532.385464"
-        },
-        ...
+        }
     }
 }
 
