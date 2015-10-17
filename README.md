@@ -178,12 +178,12 @@ just open it, build it, connect your device and deploy it in.
             "tapCount": "1",
             "timestamp": "2532.385464"
         },
-        ...
+        {...}
     }
 }
 
 ## Multi-Touch Handling
-```js
+```
 var touchesCount = Object.keys(ForceTouchData.touches).length;
 for(var i=0; i < touchesCount; i++)
 {
