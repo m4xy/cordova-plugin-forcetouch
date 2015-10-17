@@ -194,15 +194,12 @@ for(var i=0; i < touchesCount; i++)
 {
   // storing touch object at index "i"
   var currentTouch = ForceTouchData.touches[i];
-
   // accessing to ForceTouchData
   console.log(currentTouch.force);
   console.log(currentTouch.maximumPossibleForce);
   console.log(currentTouch.phase);
   console.log(currentTouch.tapCount);
   console.log(currentTouch.timestamp);
-
-  // ...
   // and so on for each loop cycle
 }
 ```
