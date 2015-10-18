@@ -58,6 +58,8 @@ function getForceTouchData()
       else
       if(force > 0.08)
         document.getElementById('touchType').innerHTML = 'Force Touch';
+        // printing Touch Point position coordinates
+        console.log("x: " + ForceTouchData.touches[0].position.x+ ";" + "y:" + ForceTouchData.touches[0].position.y);
     }
     else
     {

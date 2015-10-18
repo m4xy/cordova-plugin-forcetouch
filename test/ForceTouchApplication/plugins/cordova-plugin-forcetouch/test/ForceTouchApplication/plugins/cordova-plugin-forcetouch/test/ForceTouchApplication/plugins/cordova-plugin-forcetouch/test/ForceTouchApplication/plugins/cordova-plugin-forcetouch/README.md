@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.2.0)
+### (cordova-plugin-forcetouch v1.2.1)
 
 </br>
 </br>
@@ -70,13 +70,13 @@ function getForceTouchData()
     switch(ForceTouchData.forceTouchCapability)
     {
       case '0':
-        forceTouchCapability += 'Unknown';
+        forceTouchCapability = 'Unknown';
       break;
       case '1':
-        forceTouchCapability += 'Unavailable';
+        forceTouchCapability = 'Unavailable';
       break;
       case '2':
-        forceTouchCapability += 'Available';
+        forceTouchCapability = 'Available';
       break;
     }
 
@@ -103,7 +103,7 @@ function getForceTouchData()
         document.getElementById('touchType').innerHTML = 'Force Touch';
 
       // printing Touch Point position coordinates
-      console.log("x: " + ForceTouchData.touches[0].position.x+ ";" + "y:" + ForceTouchData.touches[0].position.y);
+      console.log("x: " + ForceTouchData.touches[0].position.x+ " ; " + "y: " + ForceTouchData.touches[0].position.y);
     }
     else
     {
@@ -157,13 +157,13 @@ just open it, build it, connect your device and deploy it in.
 - iPad Pro: From 1 to 10 touches
 ```json
 {
-    "forceTouchCapability": 2,
+    "forceTouchCapability": "2",
     "touches": {
         "0": {
             "position":{
-              "x": "345.5",
-              "y":258.1
-            }
+              "x": "345.500000",
+              "y":"258.000000"
+            },
             "force": "0.783153",
             "maximumPossibleForce": "6.666667",
             "phase": "1",
@@ -171,6 +171,10 @@ just open it, build it, connect your device and deploy it in.
             "timestamp": "2532.418879"
         },
         "1": {
+            "position":{
+              "x": "73.500000",
+              "y":"272.500000"
+            },
             "force": "0.387500",
             "maximumPossibleForce": "6.666667",
             "phase": "1",
@@ -178,6 +182,10 @@ just open it, build it, connect your device and deploy it in.
             "timestamp": "2532.402129"
         },
         "2": {
+            "position":{
+              "x": "183.000000",
+              "y":"341.00000"
+            },
             "force": "0.512394",
             "maximumPossibleForce": "6.666667",
             "phase": "1",
@@ -185,6 +193,10 @@ just open it, build it, connect your device and deploy it in.
             "timestamp": "2532.385464"
         },
         "3": {
+            "position":{
+              "x": "239.500000",
+              "y":"416.000000"
+            },
             "force": "0.237816",
             "maximumPossibleForce": "6.666667",
             "phase": "1",
@@ -204,6 +216,8 @@ for(var i=0; i < touchesCount; i++)
   // storing touch object at index "i"
   var currentTouch = ForceTouchData.touches[i];
   // accessing to ForceTouchData
+  console.log(currentTouch.position.x);
+  console.log(currentTouch.position.y);
   console.log(currentTouch.force);
   console.log(currentTouch.maximumPossibleForce);
   console.log(currentTouch.phase);
@@ -215,6 +229,8 @@ for(var i=0; i < touchesCount; i++)
 
 ## Data Types
 ```
+position.x               (float)
+position.y               (float)
 forceTouchCapability     (int enum) 0:UNKNOWN | 1:UNAVAILABLE | 2:AVAILABLE
 tapCount                 (int)
 timestamp                (float)

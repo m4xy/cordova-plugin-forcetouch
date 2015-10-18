@@ -1,6 +1,6 @@
 /*
  * Project: cordova-plugin-forcetouch
- * Version: 1.2.0
+ * Version: 1.2.1
  * File: CDVForceTouch.m
  * Author: Matteo Pisani
  * E-Mail: matteo.pisani.91@gmail.com
@@ -74,6 +74,11 @@
         for (UITouch *touch in touches)
         {
             NSMutableDictionary* TouchData = [NSMutableDictionary dictionaryWithCapacity:5];
+            NSMutableDictionary* Position = [NSMutableDictionary dictionaryWithCapacity:2];
+            CGPoint TouchCoordinates = [touch locationInView:self.view];
+            [Position setObject:[NSString stringWithFormat:@"%f",TouchCoordinates.x] forKey:@"x"];
+            [Position setObject:[NSString stringWithFormat:@"%f",TouchCoordinates.y] forKey:@"y"];
+            [TouchData setObject:Position forKey:@"position"];
             [TouchData setObject:[NSString stringWithFormat:@"%ld",(unsigned long)touch.tapCount] forKey:@"tapCount"];
             [TouchData setObject:[NSString stringWithFormat:@"%f",touch.timestamp] forKey:@"timestamp"];
             [TouchData setObject:[NSString stringWithFormat:@"%ld",(long)touch.phase] forKey:@"phase"];
@@ -83,7 +88,7 @@
                 [TouchData setObject:@"0.0" forKey:@"force"];
             [TouchData setObject:[NSString stringWithFormat:@"%f",touch.maximumPossibleForce] forKey:@"maximumPossibleForce"];
             NSDictionary* TouchDataObject = [NSDictionary dictionaryWithDictionary:TouchData];
-            [ForceTouchPoints setObject:TouchDataObject forKey:[NSString stringWithFormat:@"%d",touchIndex++]];
+            [ForceTouchPoints setObject:TouchDataObject forKey:[NSString stringWithFormat:@"%lu",(unsigned long)touchIndex++]];
         }
     }
 }

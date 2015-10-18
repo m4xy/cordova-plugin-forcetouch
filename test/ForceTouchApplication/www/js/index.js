@@ -27,13 +27,13 @@ function getForceTouchData()
     switch(ForceTouchData.forceTouchCapability)
     {
       case '0':
-        forceTouchCapability += 'Unknown';
+        forceTouchCapability = 'Unknown';
       break;
       case '1':
-        forceTouchCapability += 'Unavailable';
+        forceTouchCapability = 'Unavailable';
       break;
       case '2':
-        forceTouchCapability += 'Available';
+        forceTouchCapability = 'Available';
       break;
     }
 
@@ -59,7 +59,7 @@ function getForceTouchData()
       if(force > 0.08)
         document.getElementById('touchType').innerHTML = 'Force Touch';
         // printing Touch Point position coordinates
-        console.log("x: " + ForceTouchData.touches[0].position.x+ ";" + "y: " + ForceTouchData.touches[0].position.y);
+        console.log("x: " + ForceTouchData.touches[0].position.x+ " ; " + "y: " + ForceTouchData.touches[0].position.y);
     }
     else
     {
@@ -71,7 +71,7 @@ function getForceTouchData()
       document.getElementById('maximumPossibleForce').innerHTML = '0.000000';
       document.getElementById('touchType').innerHTML = 'No Touch';
     }
-
+    
     // printing ForceTouchData output for each Touch Point available on screen
     console.log(JSON.stringify(ForceTouchData.touches));
   });

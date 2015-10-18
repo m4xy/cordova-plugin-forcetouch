@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.2.0)
+### (cordova-plugin-forcetouch v1.2.1)
 
 </br>
 </br>
@@ -70,13 +70,13 @@ function getForceTouchData()
     switch(ForceTouchData.forceTouchCapability)
     {
       case '0':
-        forceTouchCapability += 'Unknown';
+        forceTouchCapability = 'Unknown';
       break;
       case '1':
-        forceTouchCapability += 'Unavailable';
+        forceTouchCapability = 'Unavailable';
       break;
       case '2':
-        forceTouchCapability += 'Available';
+        forceTouchCapability = 'Available';
       break;
     }
 
@@ -103,7 +103,7 @@ function getForceTouchData()
         document.getElementById('touchType').innerHTML = 'Force Touch';
 
       // printing Touch Point position coordinates
-      console.log("x: " + ForceTouchData.touches[0].position.x+ ";" + "y: " + ForceTouchData.touches[0].position.y);
+      console.log("x: " + ForceTouchData.touches[0].position.x+ " ; " + "y: " + ForceTouchData.touches[0].position.y);
     }
     else
     {
@@ -157,7 +157,7 @@ just open it, build it, connect your device and deploy it in.
 - iPad Pro: From 1 to 10 touches
 ```json
 {
-    "forceTouchCapability": 2,
+    "forceTouchCapability": "2",
     "touches": {
         "0": {
             "position":{
@@ -234,8 +234,8 @@ position.y               (float)
 forceTouchCapability     (int enum) 0:UNKNOWN | 1:UNAVAILABLE | 2:AVAILABLE
 tapCount                 (int)
 timestamp                (float)
-phase                    (int)
-force                    (float) min value: 0.0 max value: 1.0
+phase                    (int) 0:TOUCH BEGAN | 1:TOUCH MOVES
+force                    (float) min value: | 0.0 max value: 1.0
 maximumPossibleForce     (float)
 ```
 
