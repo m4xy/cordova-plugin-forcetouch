@@ -227,7 +227,7 @@ ForceTouch.getForceTouchData(function (ForceTouchData)
     console.log(currentTouch.timestamp);
     // and so on for each loop cycle
   }
-}
+});
 ```
 
 ## Data Types
