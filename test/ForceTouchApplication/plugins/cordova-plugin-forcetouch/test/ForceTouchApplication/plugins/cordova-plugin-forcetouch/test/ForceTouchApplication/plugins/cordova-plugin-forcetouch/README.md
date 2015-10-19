@@ -1,5 +1,5 @@
 # Cordova iOS Force Touch Plugin
-### (cordova-plugin-forcetouch v1.2.1)
+### (cordova-plugin-forcetouch v1.2.2)
 
 </br>
 </br>
@@ -103,7 +103,7 @@ function getForceTouchData()
         document.getElementById('touchType').innerHTML = 'Force Touch';
 
       // printing Touch Point position coordinates
-      console.log("x: " + ForceTouchData.touches[0].position.x+ " ; " + "y: " + ForceTouchData.touches[0].position.y);
+      console.log("x: " + ForceTouchData.touches[0].position.x + " ; " + "y: " + ForceTouchData.touches[0].position.y);
     }
     else
     {
@@ -234,8 +234,8 @@ position.y               (float)
 forceTouchCapability     (int enum) 0:UNKNOWN | 1:UNAVAILABLE | 2:AVAILABLE
 tapCount                 (int)
 timestamp                (float)
-phase                    (int)
-force                    (float) min value: 0.0 max value: 1.0
+phase                    (int) 0:TOUCH BEGAN | 1:TOUCH MOVES
+force                    (float) MIN VALUE: 0.0 | MAX VALUE: 1.0
 maximumPossibleForce     (float)
 ```
 

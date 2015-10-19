@@ -1,6 +1,6 @@
 /*
  * Project: cordova-plugin-forcetouch
- * Version: 1.2.1
+ * Version: 1.2.2
  * File: CDVForceTouch.h
  * Author: Matteo Pisani
  * E-Mail: matteo.pisani.91@gmail.com
