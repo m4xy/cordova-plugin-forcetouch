@@ -234,11 +234,11 @@ ForceTouch.getForceTouchData(function (ForceTouchData)
 ```
 position.x               (float)
 position.y               (float)
-forceTouchCapability     (int enum) 0:UNKNOWN | 1:UNAVAILABLE | 2:AVAILABLE
+forceTouchCapability     (int enum)  0:UNKNOWN | 1:UNAVAILABLE | 2:AVAILABLE
 tapCount                 (int)
 timestamp                (float)
-phase                    (int) 0:TOUCH BEGAN | 1:TOUCH MOVES
-force                    (float) MIN VALUE: 0.0 | MAX VALUE: 1.0
+phase                    (int)       0:TOUCH BEGAN | 1:TOUCH MOVES
+force                    (float)     MIN VALUE: 0.0 | MAX VALUE: 1.0
 maximumPossibleForce     (float)
 ```
 
