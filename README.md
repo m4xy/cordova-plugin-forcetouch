@@ -19,6 +19,8 @@ This plugin allows developer to manage Force Touch readable values of supported 
 It returns Force Touch data, prefixed with "ForceTouch" object, for each Touch Point available on the screen.
 
 ## Supported Devices (Apple)
+- iPhone 7
+- iPhone 7 Plus
 - iPhone 6S
 - iPhone 6S Plus
 - iPad Pro
