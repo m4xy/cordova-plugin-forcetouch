@@ -4,7 +4,7 @@
 </br>
 </br>
 
-<img src="cordova-plugin-forcetouch-icon.png" width="300"/>&nbsp;
+<img src="https://github.com/xonoxitron/cordova-plugin-forcetouch/blob/master/cordova-plugin-forcetouch-icon.png?raw=true" width="300"/>&nbsp;
 
 ## Author
 ```
